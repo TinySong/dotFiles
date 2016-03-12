@@ -54,7 +54,12 @@ export UPDATE_ZSH_DAYS=13
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(ubuntu sudo bash-autocompletion rsync cp adb git github python virtualenv go nyan)
-plugins=(ubuntu autojump sudo bash-autocompletion rsync cp adb git github python go golang nyan autoenv copydir terminitor screen kate github gitignore)
+# autoenv
+plugins=(ubuntu autojump sudo bash-autocompletion screen rsync cp copyfile kate copydir
+         git github gitignore
+         python pip
+         go golang docker
+         nyan terminitor screen emoji-clock themes battery)
 
 # User configuration
 
