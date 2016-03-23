@@ -5,3 +5,5 @@
 #
 # install copydir for zsh
 sudo apt-get install xclip
+# fix amark cannot play music
+sudo apt-get install phonon-backend-vlc
