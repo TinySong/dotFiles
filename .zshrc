@@ -10,6 +10,7 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="amuse"
 #ZSH_THEME="fino"
 ZSH_THEME="half-life"
+#ZSH_THEME="bira"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -98,3 +99,4 @@ fortune | cowsay -f default.cow
 
 alias vi='vim'
 alias scp='nocorrect scp'
+alias ems="emacs"
