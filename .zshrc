@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+sys_info=`head -n 1 /etc/issue | awk '{print $1}'`
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -94,9 +96,23 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-fortune | cowsay -f default.cow
-[[ -s /home/song/.autojump/etc/profile.d/autojump.sh ]] && source /home/song/.autojump/etc/profile.d/autojump.sh
+if [ "$sys_info" = "Ubuntu" ];then
+    fortune | cowsay -f default.cow
+    [[ -s /home/song/.autojump/etc/profile.d/autojump.sh ]] && source /home/song/.autojump/etc/profile.d/autojump.sh
 
+fi
 alias vi='vim'
 alias scp='nocorrect scp'
-alias ems="emacs"
+alias ems="emacs &"
+alias ems-nw="emacs -nw"
+alias pyhome=""
+alias gohome=""
+alias k_isms="cd ~/isms-kernel-2.8.0"
+alias dpdk_isms=""
+
+
+if [ "$sys_info" = "Ubuntu" ];then
+    alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
+else
+    alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
+fi
