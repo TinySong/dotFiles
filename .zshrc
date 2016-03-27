@@ -105,10 +105,11 @@ alias vi='vim'
 alias scp='nocorrect scp'
 alias ems="emacs &"
 alias ems-nw="emacs -nw"
-alias pyhome=""
-alias gohome=""
+alias pywhome=""
+alias gowhome=""
 alias k_isms="cd ~/isms-kernel-2.8.0"
 alias dpdk_isms=""
+alias gitpm="git push origin master"
 
 
 if [ "$sys_info" = "Ubuntu" ];then
