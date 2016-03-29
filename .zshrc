@@ -105,11 +105,21 @@ alias vi='vim'
 alias scp='nocorrect scp'
 alias ems="emacs &"
 alias ems-nw="emacs -nw"
+alias e="emacsclient -t -a ''"
+alias eb="emacsbare"
+alias ec="emacsclient -c -n -a ''" alias emacsbare="emacs -nw -Q --eval \"(load-theme 'misterioso)\""
+# alias vim="e"
+# alias vi="e"
+
+
 alias pywhome=""
 alias gowhome=""
 alias k_isms="cd ~/isms-kernel-2.8.0"
 alias dpdk_isms=""
-alias gitpm="git push origin master"
+alias gsm="git push origin master"
+alias gsd="git push origin develop"
+alias glm="git push origin master"
+alias gld="git push origin develop"
 
 
 if [ "$sys_info" = "Ubuntu" ];then
