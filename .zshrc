@@ -108,8 +108,8 @@ alias ems-nw="emacs -nw"
 alias e="emacsclient -t -a ''"
 alias eb="emacsbare"
 alias ec="emacsclient -c -n -a ''" alias emacsbare="emacs -nw -Q --eval \"(load-theme 'misterioso)\""
-# alias vim="e"
-# alias vi="e"
+alias vim="e"
+alias vi="e"
 
 
 alias pywhome=""
