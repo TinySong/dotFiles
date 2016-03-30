@@ -112,14 +112,20 @@ alias vim="e"
 alias vi="e"
 
 
-alias pywhome=""
-alias gowhome=""
 alias k_isms="cd ~/isms-kernel-2.8.0"
-alias dpdk_isms=""
+alias d-isms="cd ~/dpdk_isms"
+# git
 alias gsm="git push origin master"
 alias gsd="git push origin develop"
 alias glm="git push origin master"
 alias gld="git push origin develop"
+# work
+alias pywhome=""
+alias gowhome="cd ~/dnsDefecePlant/adcloud_dns"
+alias pymg="cd ~/dnsDefecePlant/adcloud_py/mange"
+alias pynd="cd ~/dnsDefecePlant/adcloud_py/node"
+alias pywb="cd ~/dnsDefecePlant/adcloud_py/web"
+alias k-isms="cd ~/isms-kernel-2.8.0"
 
 
 if [ "$sys_info" = "Ubuntu" ];then
