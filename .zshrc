@@ -101,13 +101,14 @@ if [ "$sys_info" = "Ubuntu" ];then
     [[ -s /home/song/.autojump/etc/profile.d/autojump.sh ]] && source /home/song/.autojump/etc/profile.d/autojump.sh
 
 fi
-alias vi='vim'
+# alias vi='vim'
 alias scp='nocorrect scp'
 alias ems="emacs &"
 alias ems-nw="emacs -nw"
 alias e="emacsclient -t -a ''"
 alias eb="emacsbare"
-alias ec="emacsclient -c -n -a ''" alias emacsbare="emacs -nw -Q --eval \"(load-theme 'misterioso)\""
+alias ec="emacsclient -c -n -a ''"
+alias emacsbare="emacs -nw -Q"
 alias vim="e"
 alias vi="e"
 
