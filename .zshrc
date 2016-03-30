@@ -118,8 +118,8 @@ alias d-isms="cd ~/dpdk_isms"
 # git
 alias gsm="git push origin master"
 alias gsd="git push origin develop"
-alias glm="git push origin master"
-alias gld="git push origin develop"
+alias glm="git pusl origin master"
+alias gld="git pusl origin develop"
 # work
 alias pywhome=""
 alias gowhome="cd ~/dnsDefecePlant/adcloud_dns"
