@@ -101,7 +101,7 @@ if [ "$sys_info" = "Ubuntu" ];then
     [[ -s /home/song/.autojump/etc/profile.d/autojump.sh ]] && source /home/song/.autojump/etc/profile.d/autojump.sh
 
 fi
-alias vi='vim'
+
 alias scp='nocorrect scp'
 alias ems="emacs &"
 alias ems-nw="emacs -nw"
@@ -109,17 +109,21 @@ alias e="emacsclient -t -a ''"
 alias eb="emacsbare"
 alias ec="emacsclient -c -n -a ''"
 alias emacsbare="emacs -nw -Q"
-# alias vim="e"
-# alias vi="e"
 
+if [ "$sys_info" != "Ubuntu" ];then
+    alias vi='vim'
+else
+    alias vim="e"
+    alias vi="e"
+fi
 
 alias k_isms="cd ~/isms-kernel-2.8.0"
 alias d-isms="cd ~/dpdk_isms"
 # git
 alias gsm="git push origin master"
 alias gsd="git push origin develop"
-alias glm="git pusl origin master"
-alias gld="git pusl origin develop"
+alias glm="git pull origin master"
+alias gld="git pull origin develop"
 # work
 alias pywhome=""
 alias gowhome="cd ~/dnsDefecePlant/adcloud_dns"
