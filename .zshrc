@@ -102,22 +102,23 @@ if [ "$sys_info" = "Ubuntu" ];then
 
 fi
 
+if [ "$sys_info" != "Ubuntu" ];then
+    alias vim="e"
+    alias vi="e"
+else
+alias vi='vim'
+fi
+
 alias scp='nocorrect scp'
-alias ems="emacs &"
 alias ems-nw="emacs -nw"
 alias e="emacsclient -t -a ''"
 alias eb="emacsbare"
 alias ec="emacsclient -c -n -a ''"
 alias emacsbare="emacs -nw -Q"
+alias ems="emacs &"
 
-if [ "$sys_info" != "Ubuntu" ];then
-    alias vi='vim'
-else
-    alias vim="e"
-    alias vi="e"
-fi
 
-alias k_isms="cd ~/isms-kernel-2.8.0"
+# alias k_isms="cd ~/isms-kernel-2.8.0"
 alias d-isms="cd ~/dpdk_isms"
 # git
 alias gsm="git push origin master"

@@ -6,13 +6,22 @@
 #################################################
 # install copydir for zsh
 sudo apt-get install xclip
-<<<<<<< HEAD
 # fix amark cannot play music
 sudo apt-get install phonon-backend-vlc
-=======
 #-- autojump
 git clone git://github.com/joelthelion/autojump.git
 cd autojump
 ./install.py
 
->>>>>>> 495104befc79c30dd7e2d9614b1d4e43e7b69440
+# https://www.ibm.com/developerworks/cn/aix/library/au-learningdoxygen/
+sudo apt-get install doxygen
+
+# get python_lib path
+python -c "from distutils.sysconfig import get_python_lib; print (get_python_lib())"
+# get python exe path
+python -c "import sys; print sys.executable"
+
+# install yapf path
+ pip install yapf
+ # set yapf path in $PATH
+
