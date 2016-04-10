@@ -57,3 +57,9 @@ fi
 # just for MacOS
 #install Alfred
 # on linux like alfred https://github.com/qdore/Mutate
+
+# for teX
+sudo apt-get install texlive
+
+#for emacs gpg encrpt
+apt-get install gnupg
