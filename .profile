@@ -22,9 +22,9 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 export XMODIFIERS="@im=fcitx"
-export GOROOT="/home/song/development/go"
-export GOPATH="/home/song/development/golib"
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+# export GOROOT="/usr/bin"
+# export GOPATH="/usr/bin"
+# export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 #export LANG=en_US.UTF-8
 #export LC_CTYPE=zh_CN.UTF-8
 export LANG=en_US.UTF-8
@@ -41,5 +41,7 @@ export LC_ADDRESS=en_US.UTF-8
 export LC_TELEPHONE=en_US.UTF-8
 export LC_MEASUREMENT=en_US.UTF-8
 export LC_IDENTIFICATION=en_US.UTF-8
-
+# PYTHONPATH="~/.local/lib/python2.7/site-packages/yapf"
 #export LC_ALL=
+export PYTHONPATH="~/.local/lib/python2.7/site-packages:/usr/local/lib/python2.7/site-packages"
+PATH="$PATH:$HOME/.local/bin/"

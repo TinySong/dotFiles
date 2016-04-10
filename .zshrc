@@ -66,8 +66,16 @@ plugins=(ubuntu autojump sudo bash-autocompletion screen rsync cp copyfile kate 
 
 # User configuration
 
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export MANPATH="/usr/local/man:$MANPATH"
+
+if [ "$sys_info" = "Ubuntu" ];then
+    export GOROOT="/usr/bin"
+    export GOPATH="/usr/bin"
+else
+    export GOROOT=""
+    export GOPATH=""
+fi
 
 source $ZSH/oh-my-zsh.sh
 

@@ -7,10 +7,6 @@
 	default = simple
 [core]
 	editor = emacs
-[github]
-	user = TinySong
-	password = srxGT1226
-	oauth-token = 4f4ef14c0de9b8cfe500872b017b1565b956b41d
 
 [alias]
 	# Show the diff between the latest commit and the current state
