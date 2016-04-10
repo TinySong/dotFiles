@@ -3,6 +3,7 @@
 #  > Created Time: 2016年03月12日 星期六 22时57分35秒
 # ************************************************************************/
 #
+sys_info=`head -n 1 /etc/issue | awk '{print $1}'`
 #################################################
 # install copydir for zsh
 sudo apt-get install xclip
@@ -22,16 +23,37 @@ python -c "from distutils.sysconfig import get_python_lib; print (get_python_lib
 python -c "import sys; print sys.executable"
 
 # install yapf path
- pip install yapf
- # set yapf path in $PATH
+pip install yapf
+# set yapf path in $PATH
 
+#nodejs
+if [ "$sys_info" = "Ubuntu" ];then
+    sudo apt-get install nodejs
+    if [ ! -f "/usr/bin/node" ];then
+        sudo ln -s /usr/bin/nodejs /usr/bin/node
+    fi
+    sudo apt-get install npm
+    sudo npm install -g npm  # for update npm
+    sudo npm install -g tern
+    sudo npm install -g js-beautify
+    sudo npm install -g jshint
+else
+    #http://frontenddev.org/article/ali-cloud-ecs-use-result-1-use-yum-to-install-nodejs-npm-environment.html
+    wget http://nodejs.org/dist/node-latest.tar.gz
+    tar zxf node-*.tar.gz
+    cd node-v*
+    ./configure
+    make && make install
 
-#npm for ubuntu
-http://www.cnblogs.com/seanlv/archive/2011/09/24/2189719.html
+    if [ ! -f "/usr/bin/node" ];then
+        sudo ln -s /usr/bin/nodejs /usr/bin/node
+    fi
+    npm install -g npm # for update npm
+    npm install -g tern
+    npm install -g js-beautify
+    npm install -g jshint
+fi
 
-# centos need download source code and compile, cannot npm install, 
-#    exec npm install -g npm to update npm
-# for javascript
-npm install -g npm
-npm install -g tern
-npm install -g js-beautify
+# just for MacOS
+#install Alfred
+# on linux like alfred https://github.com/qdore/Mutate
