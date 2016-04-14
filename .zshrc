@@ -62,7 +62,7 @@ plugins=(ubuntu autojump sudo bash-autocompletion screen rsync cp copyfile kate 
          git github gitignore
          python pip
          go golang docker
-         nyan terminitor screen emoji-clock themes battery)
+         nyan terminitor screen emoji-clock themes battery geeknote)
 
 # User configuration
 
