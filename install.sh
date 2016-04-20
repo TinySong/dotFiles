@@ -60,6 +60,6 @@ fi
 
 # for teX
 sudo apt-get install texlive
-
+sudo apt-get install texlive-xetex
 #for emacs gpg encrpt
 apt-get install gnupg
