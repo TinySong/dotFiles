@@ -124,6 +124,10 @@ alias eb="emacsbare"
 alias ec="emacsclient -c -n -a ''"
 alias emacsbare="emacs -nw -Q"
 alias ems="emacs &"
+alias -s gz='tar -xzvf'
+alias -s tgz='tar -xzvf'
+alias -s zip='unzip'
+alias -s bz2='tar -xjvf'
 
 
 # alias k_isms="cd ~/isms-kernel-2.8.0"
