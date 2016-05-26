@@ -12,6 +12,7 @@ sys_info=`head -n 1 /etc/issue | awk '{print $1}'`
 #ZSH_THEME="amuse"
 #ZSH_THEME="fino"
 ZSH_THEME="half-life"
+# ZSH_THEME="osx"
 #ZSH_THEME="bira"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -66,16 +67,16 @@ plugins=(ubuntu autojump sudo bash-autocompletion screen rsync cp copyfile kate 
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
 export MANPATH="/usr/local/man:$MANPATH"
 
 if [ "$sys_info" = "Ubuntu" ];then
-    export GOROOT="/usr/bin"
-    export GOPATH="/usr/bin"
+    export GOROOT="$HOME/development/go"
+    export GOPATH="$HOME/development/golang"
 else
     export GOROOT=""
     export GOPATH=""
 fi
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOROOT/bin:$GOPATH/bin
 
 source $ZSH/oh-my-zsh.sh
 
