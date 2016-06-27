@@ -46,3 +46,6 @@ export LC_IDENTIFICATION=en_US.UTF-8
 #export LC_ALL=
 export PYTHONPATH="~/.local/lib/python2.7/site-packages:/usr/local/lib/python2.7/site-packages"
 PATH="$PATH:$HOME/.local/bin/"
+export GOROOT="$HOME/development/go"
+export GOPATH="$HOME/development/golang"
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOROOT/bin:$GOPATH/bin

@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-sys_info=`head -n 1 /etc/issue | awk '{print $1}'`
+#sys_info=`head -n 1 /etc/issue | awk '{print $1}'`
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -59,23 +59,28 @@ export UPDATE_ZSH_DAYS=13
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(ubuntu sudo bash-autocompletion rsync cp adb git github python virtualenv go nyan)
 # autoenv
-plugins=(ubuntu autojump sudo bash-autocompletion screen rsync cp copyfile kate copydir
-         git github gitignore
+plugins=(autojump  bash-autocompletion screen rsync cp copyfile kate copydir
+         git github gitignore git-flow
          python pip
-         go golang docker
-         nyan terminitor screen emoji-clock themes battery geeknote)
+         go golang docker osx
+         nyan terminitor screen emoji-clock themes battery geeknote
+         brew tmux
+        sudo
+        # ubuntu
+         )
 
 # User configuration
-
+autoload -U compinit
+compinit
 export MANPATH="/usr/local/man:$MANPATH"
 
-if [ "$sys_info" = "Ubuntu" ];then
-    export GOROOT="$HOME/development/go"
-    export GOPATH="$HOME/development/golang"
-else
-    export GOROOT=""
-    export GOPATH=""
-fi
+#if [ "$sys_info" = "Ubuntu" ];then
+#else
+#    export GOROOT=""
+#    export GOPATH=""
+#fi
+export GOROOT="$HOME/development/go"
+export GOPATH="$HOME/development/golang"
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOROOT/bin:$GOPATH/bin
 
 source $ZSH/oh-my-zsh.sh
@@ -105,50 +110,26 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ "$sys_info" = "Ubuntu" ];then
-    fortune | cowsay -f default.cow
-    [[ -s /home/song/.autojump/etc/profile.d/autojump.sh ]] && source /home/song/.autojump/etc/profile.d/autojump.sh
+fortune | cowsay -f default.cow
+[[ -s /home/song/.autojump/etc/profile.d/autojump.sh ]] && source /home/song/.autojump/etc/profile.d/autojump.sh
 
-fi
-
-if [ "$sys_info" != "Ubuntu" ];then
-    alias vim="e"
-    alias vi="e"
-else
 alias vi='vim'
-fi
 
 alias scp='nocorrect scp'
-alias ems-nw="emacs -nw"
-alias e="emacsclient -t -a ''"
-alias eb="emacsbare"
-alias ec="emacsclient -c -n -a ''"
-alias emacsbare="emacs -nw -Q"
+#alias ems-nw="emacs -nw"
 alias ems="emacs &"
 alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
-
-
-# alias k_isms="cd ~/isms-kernel-2.8.0"
-alias d-isms="cd ~/dpdk_isms"
-# git
-alias gsm="git push origin master"
-alias gsd="git push origin develop"
-alias glm="git pull origin master"
-alias gld="git pull origin develop"
-# work
-alias pywhome=""
-alias gowhome="cd ~/dnsDefecePlant/adcloud_dns"
-alias pymg="cd ~/dnsDefecePlant/adcloud_py/mange"
-alias pynd="cd ~/dnsDefecePlant/adcloud_py/node"
-alias pywb="cd ~/dnsDefecePlant/adcloud_py/web"
-alias k-isms="cd ~/isms-kernel-2.8.0"
-
+alias ems='nohup /Applications/Emacs.app/Contents/MacOS/Emacs >/dev/null 2>&1 &'
 
 if [ "$sys_info" = "Ubuntu" ];then
     alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
 else
     alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
 fi
+alias btsong='ssh -p 22041 root@dev.careerdream.org'
+alias btgw='ssh root@dev.careerdream.org'
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

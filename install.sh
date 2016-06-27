@@ -65,3 +65,23 @@ sudo apt-get install texlive-xetex
 sudo apt-get install gnupg
 
 sudo apt-get install wine
+
+sudo apt-get install git-core
+
+sudo apt-get install subversion
+
+sudo apt-get install source-highlight
+
+sudo apt-get install iproute2
+
+sudo apt-get install binutils-dev
+
+sudo apt-get install PyChecker
+
+sudo apt-get install dia
+sudo apt-get install build-essential
+sudo apt-get install autoconf automake1.9
+sudo apt-get install flex bison
+sudo apt-get install manpages-dev
+#安装相关文档
+sudo apt-get install binutils-doc cpp-doc gcc-doc glibc-doc stl-manual
