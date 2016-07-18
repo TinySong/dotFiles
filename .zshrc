@@ -123,6 +123,7 @@ alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias ems='nohup /Applications/Emacs.app/Contents/MacOS/Emacs >/dev/null 2>&1 &'
+alias mac_hfs="sudo mount -t hfsplus -o force,rw /dev/sdc2 /media/`whoami`/mac_meachine"
 
 if [ "$sys_info" = "Ubuntu" ];then
     alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
