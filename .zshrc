@@ -23,7 +23,7 @@ CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=13
@@ -48,7 +48,7 @@ export UPDATE_ZSH_DAYS=13
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -59,12 +59,13 @@ export UPDATE_ZSH_DAYS=13
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(ubuntu sudo bash-autocompletion rsync cp adb git github python virtualenv go nyan)
 # autoenv
+
 plugins=(autojump  bash-autocompletion screen rsync cp copyfile kate copydir
          git github gitignore git-flow
          python pip
          go golang docker osx
          nyan terminitor screen emoji-clock themes battery geeknote
-         brew tmux
+         brew tmux osx	terminalapp macports forklift bwana
         sudo
         # ubuntu
          )
@@ -124,6 +125,15 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias ems='nohup /Applications/Emacs.app/Contents/MacOS/Emacs >/dev/null 2>&1 &'
 alias mac_hfs="sudo mount -t hfsplus -o force,rw /dev/sdc2 /media/`whoami`/mac_meachine"
+
+# man page highlight
+export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\E[0m'           # end mode
+export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 if [ "$sys_info" = "Ubuntu" ];then
     alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""

@@ -43,3 +43,9 @@ brew install htop
 # sudo mdutil -i off / 关闭spotlight 索引
 # sudo mdutil -E /' 删除spotlight 索引
 # sudo mdutil -i on /' 重建spotlight 索引
+
+# Omnigraffle Pro 6 序列号
+#Name: mojado Serial: JYFE-JRJN-GSOT-GRAG-EVJI-TEFE-VJI
+#Name: mojado@live.com Serial: IZAH-IRLI-EFDI-XAEM-JBJJ-JEFJ-BJJ
+#Name: mojado@gnu.org Serial: EMIP-OSMG-CSJU-ZZBL-INXY-TEFI-NXY
+#Name: Magic Mike Serial: LGEO-AVRN-TPGY-BZKR-WEQT-ZEB
