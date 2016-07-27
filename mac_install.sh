@@ -49,3 +49,6 @@ brew install htop
 #Name: mojado@live.com Serial: IZAH-IRLI-EFDI-XAEM-JBJJ-JEFJ-BJJ
 #Name: mojado@gnu.org Serial: EMIP-OSMG-CSJU-ZZBL-INXY-TEFI-NXY
 #Name: Magic Mike Serial: LGEO-AVRN-TPGY-BZKR-WEQT-ZEB
+
+brew install git
+brew install git-flow-avh

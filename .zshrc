@@ -142,5 +142,6 @@ else
 fi
 alias btsong='ssh -p 22041 root@dev.careerdream.org'
 alias btgw='ssh root@dev.careerdream.org'
-
+alias btsw='ssh -p 16001 root@dev.careerdream.org'
+alias backend="rsync -azuvP --delete --progress  ./* root@192.168.10.74:/data/src/backend/"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
