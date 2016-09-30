@@ -1,6 +1,8 @@
 [user]
-	name = rongxiang
-	email = rongxiang.song@careerdream.org
+    #name = rongxiang
+    #email = rongxiang.song@careerdream.org
+	name =  tinysong
+	email = tinysong1226@gmail.com
 [include]
 	path = ~/.gitconfig.local
 [push]

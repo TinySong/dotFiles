@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+#sys_info=`uname -a | awk '{print $1}'`
+sys_info=`uname`
 #sys_info=`head -n 1 /etc/issue | awk '{print $1}'`
 
 # Set name of the theme to load.
@@ -12,8 +14,7 @@ export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="amuse"
 #ZSH_THEME="fino"
 ZSH_THEME="half-life"
-# ZSH_THEME="osx"
-#ZSH_THEME="bira"
+#ZSH_THEME="awesomepanda"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -135,7 +136,9 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-if [ "$sys_info" = "Ubuntu" ];then
+#alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
+#|| "$sys_info" = "Ubuntu" 
+if [ "$sys_info" = "Darwin" ];then
     alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
 else
     alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
