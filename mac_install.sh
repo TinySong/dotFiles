@@ -12,7 +12,7 @@ brew install pyenv
 # source code pro install
 # update dotconfig
 # update hosts
-#brew install wget
+brew install wget
 # install golang environment and instal go for emacs
 brew install autojump
 brew install tmux
@@ -52,3 +52,43 @@ brew install htop
 
 brew install git
 brew install git-flow-avh
+
+brew install wget
+brew install npm
+brew install pip
+brew install totaltermianl
+brew install fc-cache
+brew install mactex
+brew install xelatex
+brew install MacTeX
+brew install Caskroom/cask/mactex
+brew cask install
+brew install fortune
+brew install doxymacs
+brew install grip
+brew install ag
+brew install llvm
+brew install htop
+brew install fortune
+brew install cowsay
+brew install go2shell
+brew install pyenv
+brew install md5sum
+brew install md5sha1sum
+brew install mutte
+brew install lspci
+brew install tmux
+brew install Mousepose
+brew install Source
+brew install git-flow-avh
+brew install free
+brew install totalterminal
+brew install flex
+brew install tree
+brew install nmap
+brew install lua
+brew install luajit
+brew install gnupg
+brew install Unarchiver
+brew install vim
+brew install gpm
