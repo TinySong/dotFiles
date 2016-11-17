@@ -92,3 +92,10 @@ brew install gnupg
 brew install Unarchiver
 brew install vim
 brew install gpm
+# for irc
+brew install irssi
+# for ripgrep command
+#https://github.com/BurntSushi/ripgrep
+brew install ripgrep
+# for draw
+brew install graphviz
