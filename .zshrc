@@ -126,7 +126,7 @@ alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
 alias ems='nohup /Applications/Emacs.app/Contents/MacOS/Emacs >/dev/null 2>&1 &'
 alias mac_hfs="sudo mount -t hfsplus -o force,rw /dev/sdc2 /media/`whoami`/mac_meachine"
-
+alias upspace="cd ~/.emacs.d; g pl --rebase upstream develop"
 # man page highlight
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
