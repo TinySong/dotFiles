@@ -1,4 +1,5 @@
 "colorscheme vividchalk
+colorscheme molokai
 "set cursorline "光标为所在行加下划线
 "set number "添加行号
 "set autoread    "文件在其他vim之外修改过，自动重启读入
@@ -105,3 +106,4 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 "set laststatus=2
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
+set guifont = Source_Code_Pro:h15
