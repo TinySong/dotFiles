@@ -12,7 +12,7 @@ sys_info=`uname`
 # ZSH_THEME="robbyrussell"
 #ZSH_THEME="bureau"
 #ZSH_THEME="amuse"
-#ZSH_THEME="fino"
+#ZSH_THEME="powerline"
 ZSH_THEME="half-life"
 #ZSH_THEME="awesomepanda"
 
@@ -67,7 +67,8 @@ plugins=(autojump  bash-autocompletion screen rsync cp copyfile kate copydir
          go golang docker osx
          nyan terminitor screen emoji-clock themes battery geeknote
          brew tmux osx	terminalapp macports forklift bwana
-        sudo
+        sudo history
+        tig
         # ubuntu
          )
 
@@ -84,13 +85,11 @@ export MANPATH="/usr/local/man:$MANPATH"
 export GOROOT="$HOME/development/go"
 export GOPATH="$HOME/development/golang"
 export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOROOT/bin:$GOPATH/bin
-
+export PATH="/Users/song/.cask/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-export LANG=en_US.UTF-8
-export LC_CTYPE=zh_CN.UTF-8
-# Preferred editor for local and remote sessions
+export LANG=en_US.UTF-8 export LC_CTYPE=zh_CN.UTF-8 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
@@ -148,3 +147,19 @@ alias btgw='ssh root@dev.careerdream.org'
 alias btsw='ssh -p 16001 root@dev.careerdream.org'
 alias backend="rsync -azuvP --delete --progress  ./* root@192.168.10.74:/data/src/backend/"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export TERM='xterm-256color'
+#source /Library/Python/2.7/site-packages/powerline_status-2.5.dev9999+git.69a72dbf6918b77464b79553fb624f6be77d3278-py2.7.egg/powerline/bindings/zsh/powerline.zsh
+#tmux
+tmux_init()
+{
+    tmux new-session -s "song" -d -n "local"    # 开启一个会话
+    tmux new-window -n "other"          # 开启一个窗口
+    tmux split-window -h                # 开启一个竖屏
+    #tmux split-window -v "top"          # 开启一个横屏,并执行top命令
+    tmux -2 attach-session -d           # tmux -2强制启用256color，连接已开启的tmux
+}
+
+# 判断是否已有开启的tmux会话，没有则开启
+if which tmux 2>&1 >/dev/null; then
+    test -z "$TMUX" && (tmux attach || tmux_init)
+fi
