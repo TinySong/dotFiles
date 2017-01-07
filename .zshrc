@@ -68,7 +68,7 @@ plugins=(autojump  bash-autocompletion screen rsync cp copyfile kate copydir
          nyan terminitor screen emoji-clock themes battery geeknote
          brew tmux osx	terminalapp macports forklift bwana
         sudo history
-        tig
+        tig wd
         # ubuntu
          )
 
@@ -149,7 +149,6 @@ alias backend="rsync -azuvP --delete --progress  ./* root@192.168.10.74:/data/sr
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 export TERM='xterm-256color'
 #source /Library/Python/2.7/site-packages/powerline_status-2.5.dev9999+git.69a72dbf6918b77464b79553fb624f6be77d3278-py2.7.egg/powerline/bindings/zsh/powerline.zsh
-#tmux
 tmux_init()
 {
     tmux new-session -s "song" -d -n "local"    # 开启一个会话
@@ -160,6 +159,6 @@ tmux_init()
 }
 
 # 判断是否已有开启的tmux会话，没有则开启
-if which tmux 2>&1 >/dev/null; then
-    test -z "$TMUX" && (tmux attach || tmux_init)
-fi
+#if which tmux 2>&1 >/dev/null; then
+#    test -z "$TMUX" && (tmux attach || tmux_init)
+#fi

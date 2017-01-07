@@ -107,3 +107,6 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 "set laststatus=2
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 set guifont = Source_Code_Pro:h15
+set rtp+=/Library/Python/2.7/site-packages/powerline_status-2.5.dev9999+git.69a72dbf6918b77464b79553fb624f6be77d3278-py2.7.egg/powerline/bindings/vim/
+set laststatus=2
+set t_Co=256

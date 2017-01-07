@@ -29,13 +29,15 @@
 	throw	= reset --hard HEAD
 	throwh	= reset --hard HEAD^
 	clr	= clean -fdx -f
-	last	= log -1
+    last	= log -1
+    lc = log ORIG_HEAD.. --stat --no-merges
 	glog	= log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	slog	= log --pretty=oneline
 	accept-ours = "!f() { git checkout --ours -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 	accept-theirs = "!f() { git checkout --theirs -- \"${@:-.}\"; git add -u \"${@:-.}\"; }; f"
 	tagcommit = !sh -c 'git rev-list $0 | head -n 1'
-
+    undo=reset --hard
+    graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
