@@ -9,6 +9,7 @@
 	default = simple
 [core]
 	editor = emacs
+	excludesfile = /Users/song/.gitignore_global
 
 [alias]
 	# Show the diff between the latest commit and the current state
@@ -41,4 +42,9 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[github]
+	user = tinysong

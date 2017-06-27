@@ -99,3 +99,5 @@ brew install irssi
 brew install ripgrep
 # for draw
 brew install graphviz
+# when install shimo_crack_version
+sudo spctl --master-disable

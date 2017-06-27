@@ -65,11 +65,9 @@ plugins=(autojump  bash-autocompletion screen rsync cp copyfile kate copydir
          git github gitignore git-flow
          python pip
          go golang docker osx
-         nyan terminitor screen emoji-clock themes battery geeknote
-         brew tmux osx	terminalapp macports forklift bwana
-        sudo history
-        tig wd
-        # ubuntu
+         # nyan terminitor screen emoji-clock
+         # brew tmux  macports history tig wd
+         # themes battery geeknote
          )
 
 # User configuration
@@ -84,7 +82,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 #fi
 export GOROOT="$HOME/development/go"
 export GOPATH="$HOME/development/golang"
-export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$HOME/bin:/usr/local/bin:$PATH:$GOROOT/bin:$GOPATH/bin:/opt/local/bin
 export PATH="/Users/song/.cask/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
@@ -118,12 +116,10 @@ alias vi='vim'
 
 alias scp='nocorrect scp'
 #alias ems-nw="emacs -nw"
-alias ems="emacs &"
 alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'
 alias -s bz2='tar -xjvf'
-alias ems='nohup /Applications/Emacs.app/Contents/MacOS/Emacs >/dev/null 2>&1 &'
 alias mac_hfs="sudo mount -t hfsplus -o force,rw /dev/sdc2 /media/`whoami`/mac_meachine"
 alias upspace="cd ~/.emacs.d; g pl --rebase upstream develop"
 # man page highlight
@@ -138,25 +134,26 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 #alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
 #|| "$sys_info" = "Ubuntu" 
 if [ "$sys_info" = "Darwin" ];then
-    alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
+    alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\" && echo -e \"192.168.1.200 wiki.tenxcloud.com/\n192.168.1.210 jira.tenxcloud.com/\n192.168.1.103 enterprise.tenxcloud.com\" >> /etc/hosts"
 else
     alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
 fi
-alias btsong='ssh -p 22041 root@dev.careerdream.org'
-alias btgw='ssh root@dev.careerdream.org'
-alias btsw='ssh -p 16001 root@dev.careerdream.org'
-alias backend="rsync -azuvP --delete --progress  ./* root@192.168.10.74:/data/src/backend/"
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-export TERM='xterm-256color'
-#source /Library/Python/2.7/site-packages/powerline_status-2.5.dev9999+git.69a72dbf6918b77464b79553fb624f6be77d3278-py2.7.egg/powerline/bindings/zsh/powerline.zsh
-tmux_init()
-{
-    tmux new-session -s "song" -d -n "local"    # 开启一个会话
-    tmux new-window -n "other"          # 开启一个窗口
-    tmux split-window -h                # 开启一个竖屏
-    #tmux split-window -v "top"          # 开启一个横屏,并执行top命令
-    tmux -2 attach-session -d           # tmux -2强制启用256color，连接已开启的tmux
-}
+alias wh="curl http://wttr.in"
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias inip="~/.internalip"
+alias top="htop"
+#export TERM='xterm-256color'
+#alias comp='ssh -p 16001 root@124.65.129.242'
+# source /Library/Python/2.7/site-packages/powerline_status-2.5.dev9999+git.69a72dbf6918b77464b79553fb624f6be77d3278-py2.7.egg/powerline/bindings/zsh/powerline.zsh
+#tmux_init()
+#{
+#    tmux new-session -s "song" -d -n "local"    # 开启一个会话
+#    tmux new-window -n "other"          # 开启一个窗口
+#    tmux split-window -h                # 开启一个竖屏
+#    #tmux split-window -v "top"          # 开启一个横屏,并执行top命令
+#    tmux -2 attach-session -d           # tmux -2强制启用256color，连接已开启的tmux
+#}
 
 # 判断是否已有开启的tmux会话，没有则开启
 #if which tmux 2>&1 >/dev/null; then
