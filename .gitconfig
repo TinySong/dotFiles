@@ -48,3 +48,5 @@
 	trustExitCode = true
 [github]
 	user = tinysong
+[commit]
+	template = ~/development/dotFiles/.msg-template-for-tenx.txt
