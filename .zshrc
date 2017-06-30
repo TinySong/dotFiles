@@ -143,6 +143,11 @@ alias wh="curl http://wttr.in"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias inip="~/.internalip"
 alias top="htop"
+
+pidportfunction() {
+	lsof -n -i4TCP:$1 | grep LISTEN
+}
+alias pidport=pidportfunction
 #export TERM='xterm-256color'
 #alias comp='ssh -p 16001 root@124.65.129.242'
 # source /Library/Python/2.7/site-packages/powerline_status-2.5.dev9999+git.69a72dbf6918b77464b79553fb624f6be77d3278-py2.7.egg/powerline/bindings/zsh/powerline.zsh
