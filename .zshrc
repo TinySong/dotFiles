@@ -65,8 +65,8 @@ plugins=(autojump  bash-autocompletion screen rsync cp copyfile kate copydir
          git github gitignore git-flow
          python pip
          go golang docker osx
-         # nyan terminitor screen emoji-clock
-         # brew tmux  macports history tig wd
+		 kubectl nyan terminitor screen emoji-clock
+         brew tmux  macports history tig wd
          # themes battery geeknote
          )
 
@@ -111,7 +111,8 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 fortune | cowsay -f default.cow
 [[ -s /home/song/.autojump/etc/profile.d/autojump.sh ]] && source /home/song/.autojump/etc/profile.d/autojump.sh
-
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias vi='vim'
 
 alias scp='nocorrect scp'
@@ -131,8 +132,6 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-#alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\""
-#|| "$sys_info" = "Ubuntu" 
 if [ "$sys_info" = "Darwin" ];then
     alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\" && echo -e \"192.168.1.200 wiki.tenxcloud.com/\n192.168.1.210 jira.tenxcloud.com/\n192.168.1.103 enterprise.tenxcloud.com\" >> /etc/hosts"
 else
@@ -143,7 +142,7 @@ alias wh="curl http://wttr.in"
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias inip="~/.internalip"
 alias top="htop"
-
+alias grep="rg"
 pidportfunction() {
 	lsof -n -i4TCP:$1 | grep LISTEN
 }
