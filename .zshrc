@@ -116,21 +116,16 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias vi='vim'
 
 alias scp='nocorrect scp'
-#alias ems-nw="emacs -nw"
-alias -s gz='tar -xzvf'
-alias -s tgz='tar -xzvf'
-alias -s zip='unzip'
-alias -s bz2='tar -xjvf'
+# linum mount hfs file system
 alias mac_hfs="sudo mount -t hfsplus -o force,rw /dev/sdc2 /media/`whoami`/mac_meachine"
-alias upspace="cd ~/.emacs.d; g pl --rebase upstream develop"
 # man page highlight
-export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\E[0m'           # end mode
-export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'           # end underline
-export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+# export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+# export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+# export LESS_TERMCAP_me=$'\E[0m'           # end mode
+# export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+# export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+# export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+# export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 if [ "$sys_info" = "Darwin" ];then
     alias up-hosts="wget https://raw.githubusercontent.com/racaljk/hosts/master/hosts -qO /tmp/hosts && echo \"get end ...\" && sudo mv /tmp/hosts /etc/hosts && echo \"Up ok ...\" && echo -e \"192.168.1.200 wiki.tenxcloud.com/\n192.168.1.210 jira.tenxcloud.com/\n192.168.1.103 enterprise.tenxcloud.com\" >> /etc/hosts"
@@ -147,19 +142,5 @@ pidportfunction() {
 	lsof -n -i4TCP:$1 | grep LISTEN
 }
 alias pidport=pidportfunction
-#export TERM='xterm-256color'
-#alias comp='ssh -p 16001 root@124.65.129.242'
-# source /Library/Python/2.7/site-packages/powerline_status-2.5.dev9999+git.69a72dbf6918b77464b79553fb624f6be77d3278-py2.7.egg/powerline/bindings/zsh/powerline.zsh
-#tmux_init()
-#{
-#    tmux new-session -s "song" -d -n "local"    # 开启一个会话
-#    tmux new-window -n "other"          # 开启一个窗口
-#    tmux split-window -h                # 开启一个竖屏
-#    #tmux split-window -v "top"          # 开启一个横屏,并执行top命令
-#    tmux -2 attach-session -d           # tmux -2强制启用256color，连接已开启的tmux
-#}
-
-# 判断是否已有开启的tmux会话，没有则开启
-#if which tmux 2>&1 >/dev/null; then
-#    test -z "$TMUX" && (tmux attach || tmux_init)
-#fi
+alias docker-pid="sudo docker inspect --format '{{.State.Pid}}'" // PID
+alias docker-ip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'" // IP
