@@ -1,0 +1,120 @@
+#!/bin/bash
+# The shebang is just a hint for editors.
+
+function _logerror() {
+    local RED='\033[0;31m'
+    local NC='\033[0m'
+    echo $(echo -en "${RED}")"$@"$(echo -en "${NC}")
+}
+
+# Determine the directory containing this script
+if [[ -n $BASH_VERSION ]]; then
+    _SCRIPT_LOCATION=${BASH_SOURCE[0]}
+    _SHELL="bash"
+elif [[ -n $ZSH_VERSION ]]; then
+    _SCRIPT_LOCATION=${funcstack[1]}
+    _SHELL="zsh"
+else
+    _logerror "Only bash and zsh are supported"
+    return 1
+fi
+SOCKS_CLI_DIR="$(dirname "${_SCRIPT_LOCATION}")"
+
+# Ensure that this script is sourced, not executed
+# Also note that errors are ignored as `activate foo` doesn't generate a bad
+# value for $0 which would cause errors.
+if [[ -n $BASH_VERSION ]] && [[ "$(basename "$0" 2> /dev/null)" = "activate" ]]; then
+    _logerror "Error: activate must be sourced. Run 'source "$0"' instead."
+    exit 1
+fi
+
+# Reload
+if [ "${_socks_cli}" = "1" ]; then
+    source "${SOCKS_CLI_DIR}/deactivate"
+fi
+
+# Convert to absolute path
+SOCKS_CLI_DIR="$(python -c "import os,sys;print(os.path.abspath(sys.argv[1]))" "${SOCKS_CLI_DIR}")"
+
+declare -a _socks_cli_saved_vars=()
+declare -a _socks_cli_supports=()
+declare -a _socks_cli_export_vars=()
+
+function _expand() {
+    eval "(echo \"\${$1}\") 2>/dev/null"
+}
+
+function _defined() {
+    [ -n "$(eval "(echo \"\${$1+x}\") 2>/dev/null")" ]
+    return $?
+}
+
+function _save_var() {
+    if [ -n "$1" ]; then
+        _socks_cli_saved_vars+=("$1")
+        if _defined "$1"; then
+            eval "_socks_cli_saved_$1=\"$(_expand "$1")\""
+        fi
+    fi
+}
+
+function _is_function_exist() {
+    declare -f "$1" > /dev/null
+    return $?
+}
+
+function _contains() {
+    for e in "${@:2}"; do [[ "$e" = "$1" ]] && return 0; done; return 1
+}
+
+function LOAD_SUPPORT() {
+    if [ $# -lt 1 ]; then
+        _logerror "Error: LOAD_SUPPORT() requires one parameter."
+        return 1
+    fi
+    local script="${SOCKS_CLI_DIR}/supports/$1"
+    if [ ! -f "${script}" ]; then
+        _logerror "Error: \"${script}\" doesn't exist."
+        return 1
+    fi
+    _socks_cli_supports+=("$1")
+    source "${script}"
+
+    # Execute the activation hook
+    local hook="socks_cli_activate_$1"
+    _is_function_exist "$hook" && "$hook"
+}
+
+function EXPORT_ENV() {
+    if [ $# -lt 2 ]; then
+        _logerror "Error: DEFINE_ENV() requires two parameters."
+        return 1
+    fi
+    if _contains "$1" "${_socks_cli_export_vars[@]}" ; then
+        _logerror "Warning: ignoring duplicated env var $1=\"$2\""
+        return 1
+    fi
+    _socks_cli_export_vars+=("$1")
+    _save_var "$1"
+    eval "export $1=\"$2\""
+}
+
+source "${SOCKS_CLI_DIR}/socksproxyenv"
+
+# Prompt that socks-cli is activated
+_save_var "PS1"
+PS1_PREFIX=$'\e[0;32msocks-cli\e[0m '
+if [ "$_SHELL" = "bash" ]; then
+    # Bash needs \[ and \] to surround non-printing characters:
+    #   http://www.gnu.org/software/bash/manual/html_node/Controlling-the-Prompt.html
+    PS1_PREFIX='\[\033[0;32m\]socks-cli\[\033[0m\] '
+elif [ "$_SHELL" = "zsh" ]; then
+    PS1_PREFIX="%{%F{green}%}socks-cli%{%f%} "
+fi
+export PS1=$PS1_PREFIX$PS1
+
+_socks_cli=1
+echo "Done! Some environment variables have been changed to:"
+for var in "${_socks_cli_export_vars[@]}"; do
+    echo "  $var=$(_expand "$var")"
+done

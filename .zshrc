@@ -9,12 +9,10 @@ sys_info=`uname`
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
-#ZSH_THEME="bureau"
-#ZSH_THEME="amuse"
-#ZSH_THEME="powerline"
+# https://github.com/mbadolato/iTerm2-Color-Schemes
 ZSH_THEME="half-life"
-#ZSH_THEME="awesomepanda"
+#ZSH_THEME="agnoster"
+#ZSH_THEME="bullet-train"
 
 # Uncomment the following line to use case-sensitive completion.
 CASE_SENSITIVE="true"
@@ -30,16 +28,16 @@ DISABLE_AUTO_UPDATE="true"
 export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -61,13 +59,12 @@ HIST_STAMPS="mm/dd/yyyy"
 # plugins=(ubuntu sudo bash-autocompletion rsync cp adb git github python virtualenv go nyan)
 # autoenv
 
-plugins=(autojump  bash-autocompletion screen rsync cp copyfile kate copydir
+plugins=(
+autojump  bash-autocompletion copyfile copydir
          git github gitignore git-flow
-         python pip
-         go golang docker osx
-		 kubectl nyan terminitor screen emoji-clock
-         brew tmux  macports history tig wd
-         # themes battery geeknote
+        go golang docker osx
+		 #kubectl nyan terminitor
+         #brew tmux  macports history tig wd
          )
 
 # User configuration
@@ -114,6 +111,7 @@ fortune | cowsay -f default.cow
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 alias vi='vim'
+alias ls='ls -G'
 
 alias scp='nocorrect scp'
 # linum mount hfs file system
@@ -138,9 +136,14 @@ alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias inip="~/.internalip"
 alias top="htop"
 alias grep="rg"
+alias sockactive="source ~/development/dotFiles/socks-cli/activate"
+alias sockdeactive="source ~/development/dotFiles/socks-cli/deactivate"
 pidportfunction() {
 	lsof -n -i4TCP:$1 | grep LISTEN
 }
 alias pidport=pidportfunction
 alias docker-pid="sudo docker inspect --format '{{.State.Pid}}'" // PID
 alias docker-ip="sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}'" // IP
+#export TENX_API_HOST=192.168.1.103:48000
+export TENX_API_HOST=localhost:8000
+#export TENX_API_HOST=192.168.0.227:8000
